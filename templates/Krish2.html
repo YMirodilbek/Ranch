@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="{% static 'krish2.css'%}">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+    <link rel="stylesheet" href="{% static 'bookpg.css'%}">
+    <link rel="stylesheet" href="{% static 'SignUp.css'%}">
+    <link rel="stylesheet" href="{% static 'Login.css'%}">
+
+
+
+
+
+</head>
+
+<body>
+    <section class="krish1">
+        <div class="krish">
+            <p>Kitobxonlarni moliyaviy qo'llab-quvvatlash maqsadida hamda har bir mutolaa qilgan adabiyoti uchun moddiy
+                pul mablag'lari bilan rag'batlantirish asnosida ushbu <b>"NanoBook"</b> platformasi tashkil qilindi.</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% if user.is_authenticated %}
+                <a href="/home/"><button>BOSHLASH</button></a>
+
+                {% else %}
+                <a href="/login/"><button>BOSHLASH</button></a>
+                {% endif %}
+        </div>
+    </section>
+</body>
+
+</html>

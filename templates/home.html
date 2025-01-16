@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+    
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="{% static 'script.js'%}" defer></script>
+</head>
+
+<body bgcolor="#EFE5DA">
+    <!-- header boshland -->
+    <div id="main-container">
+        <header>
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <a href="#sdiber"><img src="{% static 'logo/headerchaptomon.png'%}" alt="Nano" width="40"></a>
+            </div>
+            <img src="{% static 'logo/NanoBook.png'%}" alt="Logo" class="logo">
+            <div class="right-icon"><img src="{% static 'logo/header.png'%}" alt="Logo" width="40"></div>
+        </header><br>
+
+        <aside id="sidebar">
+            <div class="user-info">
+                <div class="profile-pic"><img src="{% static 'pdf6/photo_2024-11-06_14-43-02.jpg'%}" alt="Profile Icon"></div>
+                <p class="user-name">Shavkatov Abduvali</p>
+            </div>
+            <ul class="menu-list">
+                <li><img src="{% static 'logo/summary-icon.png'%}" alt="Summary Icon"> <span>Xulosa</span></li>
+                <li><img src="{% static 'logo/wallet-icon.png'%}" alt="Wallet Icon"> <span>Hamyon</span></li>
+                <li><img src="{% static 'logo/monitor-icon.png'%}" alt="Monitoring Icon"> <span>Monitoring</span></li>
+                <li><img src="{% static 'logo/share-icon.png'%}" alt="Share Icon"> <span>Do'stlarga ulashish</span></li>
+                <li><img src="{% static 'logo/settings-icon.png'%}" alt="Settings Icon"> <span>Sozlamalar</span></li>
+                <li><img src="{% static 'logo/help-icon.png'%}" alt="Help Icon"> <span>Yordam</span></li>
+                <li><img src="{% static 'logo/logout-icon.png'%}" alt="Logout Icon"> <span><a href="/logout/">Chiqish</a></span></li>
+            </ul>
+            <div class="footer">
+                <p><img src="{% static 'logo/info-icon.png'%}" alt="Info Icon"> <span>Dastur haqida</span></p>
+            </div>
+        </aside>
+        <div id="overlay" onclick="closeSidebar()"></div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                overlay.style.display = 'none';
+            } else {
+                sidebar.style.left = '0px';
+                overlay.style.display = 'block';
+            }
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').style.left = '-250px';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+    <!-- header tugad -->
+    <form method="get">
+    <div class="search">
+        <span class="iconl"><i class="fas fa-search"></i></span>
+        {{form.query}}
+        <span class="iconr"><img src="{% static 'logo/ongtomon.png'%}" alt="" width="25"></span>
+        <button type="submit" style="display: none;">Jonatish</button>
+    </div>
+    </form>
+    <br><br>
+    <div class="Con">
+        <h1>Nano It School</h3>
+            <h5>IT va zamonaviy kasblar markazi</h5>
+            <div class="isbn">
+                <div class="yy">
+                    <a href="#"><button class="button55">MARKAZ <br> YANGILIKLARI</button></a>
+                    <a href="#"><button class="button55">MAVJUD <br> YO'NALISHLAR</button></a>
+                    <a href="#"><button class="button55">YANGI <br> AKSIYALAR</button></a>
+                    <a href="#"><button class="button55">MARAKAZ <br> TO'G'RISIDA</button></a>
+                </div>
+            </div>
+    </div>
+
+    <br><br>
+    <div class="wrapper">
+        <div class="icon"><i id="left" class="fa-solid fa-angle-left"></i></div>
+        <ul class="tabs-box">
+            <li class="tab">Hammasi</li>
+            {% for i in category%}
+            <li class="tab"><a href="?category={{ i.id }}">{{i.name}}</a></li>
+            {% endfor %}
+        </ul>
+        <div class="icon"><i id="right" class="fa-solid fa-angle-right"></i></div>
+    </div>
+    <br><br>
+    <div class="matny4">
+        {% if query %}
+        <h1>Natijalar <span style="color: red;">"{{query}}"</span> uchun</h1>
+        {% else %}
+        <h1>Kitoblar</h1>
+        {% endif %}
+        <p>Barchasini ko’rish > <span><img src="{% static 'image.png'%}" alt="" width="15" height="15"></span></p>
+    </div>
+    <br><br>
+    {% if query%}
+    <div class="rasmlar5">
+        {% if result %}
+            {% for i in result %}
+            <a href="/detailbook/{{i.id}}/"><img src="{{i.image.url}}" alt="" width="292" height="443"></a>
+        
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {% else%}
+    <div class="rasmlar5">
+        {% for i in book %}
+        <a href="/detailbook/{{i.id}}/"><img src="{{i.image.url}}" alt="" width="292" height="443"></a>
+    
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</body>
+
+</html>

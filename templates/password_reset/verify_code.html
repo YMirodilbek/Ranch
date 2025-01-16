@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="{% static 'Up2.css'%}">
+</head>
+<style>
+    #alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.custom-alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-size: 16px;
+    animation: slide-in 0.5s ease-out;
+}
+
+.custom-alert.alert-success {
+    background-color: hsl(134, 61%, 41%);
+}
+
+.custom-alert.alert-info {
+    background-color: #17a2b8;
+}
+
+.custom-alert.alert-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.custom-alert.alert-error,
+.custom-alert.alert-danger {
+    background-color: #dc3545;
+}
+
+.custom-alert .close-alert {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.custom-alert .close-alert:hover {
+    color: #ddd;
+}
+
+/* Animatsiya */
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <div class="Tepa">
+            <img src="{% static 'logo/NanoBook.png'%}" alt="NanoBook Logo" width="700" height="200px">
+        </div>
+    </header>
+    <div id="alert-container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="custom-alert alert-{{ message.tags }}">
+                    <span class="alert-message">{{ message }}</span>
+                    <button class="close-alert">&times;</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <div class="Orta">
+    <form method="post">
+        {% csrf_token%}
+        <h2>Tasdiqlash</h2>
+        <br>
+        <label>Tasdiqlash Kodini Kiriting: </label><br>
+        {{form.code}}
+        <br>
+        <button>DAVOM ETTIRISH</button>
+    </form>
+    </div>
+
+    <script>
+        // Alertlarni avtomatik o'chirish
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                document.querySelectorAll(".custom-alert").forEach(alert => {
+                    alert.style.animation = "fade-out 0.5s forwards";
+                    setTimeout(() => alert.remove(), 500); // 0.5s keyin o'chiriladi
+                });
+            }, 5000); // 5 soniyadan keyin avtomatik o'chiriladi
+    
+            // "Yopish" tugmasi orqali o'chirish
+            document.querySelectorAll(".close-alert").forEach(button => {
+                button.addEventListener("click", function () {
+                    const alert = this.parentElement;
+                    alert.style.animation = "fade-out 0.5s forwards";
+                    setTimeout(() => alert.remove(), 500);
+                });
+            });
+        });
+    
+        // Fade-out animatsiyasi
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fade-out {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="{% static 'Login.css'%}">
+</head>
+
+<body>
+    <header>
+        <div class="Tepa">
+            <img src="{% static 'logo/NanoBook.png'%}" alt="NanoBook Logo" width="700" height="200px">
+        </div>
+    </header>
+    <div class="Orta">
+
+    <form method="post">
+        {% csrf_token %}
+    
+        <h2>Ro'yhatga Kirish</h2>
+        <br>
+        <label>Login: </label><br>
+        {{form.username}}
+        <label>Parol: </label><br>
+       {{form.password}}
+       <button>DAVOM ETTIRISH</button>
+    </form>
+        <br>
+        <a href="/send-code/" class="chap" style="color: #6154B6;">Parol yoki loginni unutdingzmi</a>
+        <br>
+       
+        
+        <br>
+        <br>
+        <br>
+        <a href="/signup/"  style="color: #6154B6;">Ro'yhatdan o'tish</a>
+    </div>
+</body>
+
+</html>

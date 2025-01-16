@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="hometugash1.css">
+</head>
+
+<body bgcolor="#EFE5DA">
+    <div id="main-container">
+        <header>
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <a href="#sdiber"><img src="logo/headerchaptomon.png" alt="Nano" width="40"></a>
+            </div>
+            <img src="logo/NanoBook.png" alt="Logo" class="logo">
+            <div class="right-icon"><img src="logo/header.png" alt="Logo" width="40"></div>
+        </header><br>
+
+        <aside id="sidebar">
+            <div class="user-info">
+                <div class="profile-pic"><img src="pdf6/photo_2024-11-06_14-43-02.jpg" alt="Profile Icon"></div>
+                <p class="user-name">Shavkatov Abduvali</p>
+            </div>
+            <ul class="menu-list">
+                <li><img src="logo/summary-icon.png" alt="Summary Icon"> <span>Xulosa</span></li>
+                <li><img src="logo/wallet-icon.png" alt="Wallet Icon"> <span>Hamyon</span></li>
+                <li><img src="logo/monitor-icon.png" alt="Monitoring Icon"> <span>Monitoring</span></li>
+                <li><img src="logo/share-icon.png" alt="Share Icon"> <span>Do'stlarga ulashish</span></li>
+                <li><img src="logo/settings-icon.png" alt="Settings Icon"> <span>Sozlamalar</span></li>
+                <li><img src="logo/help-icon.png" alt="Help Icon"> <span>Yordam</span></li>
+                <li><img src="logo/logout-icon.png" alt="Logout Icon"> <span>Chiqish</span></li>
+            </ul>
+            <div class="footer">
+                <p><img src="logo/info-icon.png" alt="Info Icon"> <span>Dastur haqida</span></p>
+            </div>
+        </aside>
+        <div id="overlay" onclick="closeSidebar()"></div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                overlay.style.display = 'none';
+            } else {
+                sidebar.style.left = '0px';
+                overlay.style.display = 'block';
+            }
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').style.left = '-250px';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+    <h1 class="ds">Dastur haqida:</h1>
+    <div class="matn">
+        <p>Dastur 2024-yil <b> Muhammadxonov Kamolxon </b> tomonidan asos solindi. Lorem Ipsum is simply dummy text of
+            the
+            printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into  </p>
+    </div>
+    <div class="container2">
+        <div class="card">
+            <div>Muhammadxonov Kamolxon</div>
+            <img src="pdf6/photo_2024-03-26_07-09-29.jpg" alt="Muhammadxon Kamolxon">
+            <p class="position"> <b>Nano Book Platformasi</b> <br>
+                asoschisi</p>
+        </div>
+        <div class="card">
+            <div>Mirodilbek Yuldashev</div>
+            <img src="pdf6/photo_2024-11-06_14-32-46.jpg" alt="Mirodilbek Yuldashev">
+            <p class="position"><b>Nano Book Platformasi </b> <br>
+                Back-end dasturchisi</p>
+        </div>
+
+        <div class="card">
+            <div>Nuraliyev Muhammad Sodiq</div>
+            <img src="pdf6/1396.jpg" alt="Nuraliyev Muhammad Sodiq">
+            <p class="position"><b>Nano Book Platformasi </b> <br>
+                Web dizayneri</p>
+        </div>
+        <div class="card">
+            <div>Shavkatov Abduvali</div>
+            <img src="pdf6/photo_2024-11-06_14-43-02.jpg" alt="Nuraliyev Muhammad Sodiq">
+            <p class="position"><b>Nano Book Platformasi </b> <br>
+                Front-End dasturchisi</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    background-color: #EFE5DA;
+    font-family: 'GOTHIC';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section {
+    text-align: center;
+    max-width: 600px;
+    /* Sahifa kengligi */
+    /* Atrofda bo'sh joy */
+}
+
+.krish {
+    margin: 20px 0;
+}
+
+p {
+    width: 356px;
+    height: 210px;
+    top: 305px;
+    left: 23px;
+    gap: 0px;
+    opacity: 0px;
+    color: #333;
+    line-height: 30px;
+    font: Popins;
+    font-size: 19px;
+    align-items: center;
+}
+
+button {
+    background: #670BA6;
+    /* O'zingiz xohlagan rang */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4b038f;
+}
+
+@media (max-width: 768px) {
+
+    p {
+        font-size: .9em;
+    }
+
+    button {
+        padding: 8px 14px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+ 
+
+    p {
+        font-size: 1em;
+    }
+
+    button {
+        width: 60%;
+    }
+}

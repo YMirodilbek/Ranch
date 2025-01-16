@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="monitoring.css">
+</head>
+
+<body bgcolor="#EFE5DA">
+    <div id="main-container">
+        <header>
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <a href="#sdiber"><img src="logo/headerchaptomon.png" alt="Nano" width="40"></a>
+            </div>
+            <img src="logo/NanoBook.png" alt="Logo" class="logo">
+            <div class="right-icon"><img src="logo/header.png" alt="Logo" width="40"></div>
+        </header><br>
+
+        <aside id="sidebar">
+            <div class="user-info">
+                <div class="profile-pic"><img src="pdf6/photo_2024-11-06_14-43-02.jpg" alt="Profile Icon"></div>
+                <p class="user-name">Shavkatov Abduvali</p>
+            </div>
+            <ul class="menu-list">
+                <li><img src="logo/summary-icon.png" alt="Summary Icon"> <span>Xulosa</span></li>
+                <li><img src="logo/wallet-icon.png" alt="Wallet Icon"> <span>Hamyon</span></li>
+                <li><img src="logo/monitor-icon.png" alt="Monitoring Icon"> <span>Monitoring</span></li>
+                <li><img src="logo/share-icon.png" alt="Share Icon"> <span>Do'stlarga ulashish</span></li>
+                <li><img src="logo/settings-icon.png" alt="Settings Icon"> <span>Sozlamalar</span></li>
+                <li><img src="logo/help-icon.png" alt="Help Icon"> <span>Yordam</span></li>
+                <li><img src="logo/logout-icon.png" alt="Logout Icon"> <span>Chiqish</span></li>
+            </ul>
+            <div class="footer">
+                <p><img src="logo/info-icon.png" alt="Info Icon"> <span>Dastur haqida</span></p>
+            </div>
+        </aside>
+        <div id="overlay" onclick="closeSidebar()"></div>
+    </div><br><br>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                overlay.style.display = 'none';
+            } else {
+                sidebar.style.left = '0px';
+                overlay.style.display = 'block';
+            }
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').style.left = '-250px';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+    <!--  -->
+    <h1
+        style="color: black; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 40px; top: 10px;">
+        MONITORING</h1><br>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <details>
+            <summary>
+                O'qilgan adabiyotlar ro'yxati
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="details-content">
+                <ul>
+                    <li>1. Abdulla Avloniy. Maktab <i class="fas fa-check-circle"></i></li>
+                    <li>2. Abdulla Avloniy. Maktab <i class="fas fa-check-circle"></i></li>
+                </ul>
+            </div>
+        </details>
+    </div><br><br>
+    <div  class="u7">
+        <h1 style="font-size: 25px;">O’qiyotgan adabiyoti:</h1>
+        <div style="display: flex; gap: 150px;">
+            <p style="font-size: 14px; color: #4e4d4dbf;"><span style="color: black; font-weight: 700;">Abdulla Avloniy.
+                </span> Maktab</p>
+            <p style="font-size: 14px; font-weight: 500;">450/180</p>
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <button><a href="Oqish.html">ORQAGA</a></button>
+    </div>
+    <script>
+        document.querySelectorAll("details").forEach((details) => {
+            details.addEventListener("toggle", function () {
+                const content = this.querySelector(".details-content");
+                const isOpen = this.open;
+                if (isOpen) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.opacity = 1;
+                } else {
+                    setTimeout(() => {
+                        content.style.maxHeight = "0";
+                        content.style.opacity = 3;
+                    }, 4500);
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+</body>
+
+</html>

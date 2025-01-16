@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="hamyon.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+<body bgcolor="#EFE5DA">
+    <div id="main-container">
+        <header>
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <a href="#sdiber"><img src="logo/headerchaptomon.png" alt="Nano" width="40"></a>
+            </div>
+            <a href="#"><img src="logo/NanoBook.png" alt="Logo" class="logo"></a>
+            <div class="right-icon"><a href="#"><img src="logo/header.png" alt="Logo" width="40"></a></div>
+        </header><br>
+
+        <aside id="sidebar">
+            <div class="user-info">
+                <a href="#">
+                    <div class="profile-pic"><img src="pdf6/photo_2024-11-06_14-43-02.jpg" alt="Profile Icon"></div>
+                </a>
+                <p class="user-name">Shavkatov Abduvali</p>
+            </div>
+            <ul class="menu-list">
+                <li><img src="logo/summary-icon.png" alt="Summary Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Xulosa</span></a></li>
+                <li><img src="logo/wallet-icon.png" alt="Wallet Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Hamyon</span></a></li>
+                <li><img src="logo/monitor-icon.png" alt="Monitoring Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Monitoring</span></a>
+                </li>
+                <li><img src="logo/share-icon.png" alt="Share Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Do'stlarga
+                            ulashish</span></a></li>
+                <li><img src="logo/settings-icon.png" alt="Settings Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Sozlamalar</span></a>
+                </li>
+                <li><img src="logo/help-icon.png" alt="Help Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Yordam</span></a></li>
+                <li><img src="logo/logout-icon.png" alt="Logout Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Chiqish</span></a></li>
+            </ul>
+            <div class="footer">
+                <p><img src="logo/info-icon.png" alt="Info Icon"><a href="#"
+                        style="list-style: none; color: white;text-decoration: none;"> <span>Dastur
+                            haqida</span></a></p>
+            </div>
+        </aside>
+        <div id="overlay" onclick="closeSidebar()"></div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                overlay.style.display = 'none';
+            } else {
+                sidebar.style.left = '0px';
+                overlay.style.display = 'block';
+            }
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').style.left = '-250px';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+    <!--  -->
+    <h1 style="display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 40px;">HAMYON</h1>
+    <br>
+    <h4 style="display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 22px;">Umumiy balans:</h4>
+   <h3 style="display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 32px; color: #1DCC13;">13 450 UZD</h3>
+   <br>
+   <div class="container">
+    <div class="amount">
+        <span class="label">Mutoala uchun:</span>
+        <span class="value">7 450 UZD</span>
+    </div>
+    <div class="amount">
+        <span class="label">Referral uchun:</span>
+        <span class="value">5 000 UZD</span>
+    </div><br><br>
+    <a href="#" class="button">Yechib olish</a><br><br><br><br><br><br>
+    <a href="#" class="button1">Orqaga</a>
+</div>
+</body>
+</html>

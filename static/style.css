@@ -1,0 +1,52 @@
+/* style.css */
+
+/* Umumiy uslublar */
+body {
+    margin: 0;
+    font-family: 'GOTHIC';
+    background-color: #EFE5DA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section {
+    text-align: center;
+    padding: 40px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Rasm va tugma o'rtasida bo'sh joy */
+}
+
+button {
+    background-color: #670BA6; /* O'zingiz xohlagan rang */
+    color: white;
+    border: none;
+    padding: 20px 35px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4b038f; /* Hover effekt */
+}
+
+/* Responsiv dizayn */
+@media (max-width: 768px) {
+    button {
+        padding: 8px 14px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        width: 60%;
+    }
+}

@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'oqwuchun.css'%}">
+</head>
+
+<body bgcolor="#EFE5DA">
+    <main>
+        <!-- header boshland -->
+        <div id="main-container">
+            <header>
+                <div class="menu-icon" onclick="toggleSidebar()">
+                    <a href="#sdiber"><img src="{% static 'logo/headerchaptomon.png'%}" alt="Nano" width="40"></a>
+                </div>
+                <img src="{% static 'logo/NanoBook.png'%}" alt="Logo" class="logo">
+                <div class="right-icon"><img src="{% static 'logo/header.png'%}" alt="Logo" width="40"></div>
+            </header><br>
+
+            <aside id="sidebar">
+                <div class="user-info">
+                    <div class="profile-pic"><img src="pdf6/photo_2024-11-06_14-43-02.jpg" alt="Profile Icon"></div>
+                    <p class="user-name">Shavkatov Abduvali</p>
+                </div>
+                <ul class="menu-list">
+                    <li><img src="{% static 'logo/summary-icon.png'%}" alt="Summary Icon"> <span>Xulosa</span></li>
+                    <li><img src="{% static 'logo/wallet-icon.png'%}" alt="Wallet Icon"> <span>Hamyon</span></li>
+                    <li><img src="{% static 'logo/monitor-icon.png'%}" alt="Monitoring Icon"> <span>Monitoring</span></li>
+                    <li><img src="{% static 'logo/share-icon.png'%}" alt="Share Icon"> <span>Do'stlarga ulashish</span></li>
+                    <li><img src="{% static 'logo/settings-icon.png'%}" alt="Settings Icon"> <span>Sozlamalar</span></li>
+                    <li><img src="{% static 'logo/help-icon.png'%}" alt="Help Icon"> <span>Yordam</span></li>
+                    <li><img src="{% static 'logo/logout-icon.png'%}" alt="Logout Icon"> <span>Chiqish</span></li>
+                </ul>
+                <div class="footer">
+                    <p><img src="{% static 'logo/info-icon.png'%}" alt="Info Icon"> <span>Dastur haqida</span></p>
+                </div>
+            </aside>
+            <div id="overlay" onclick="closeSidebar()"></div>
+        </div>
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('overlay');
+
+                if (sidebar.style.left === '0px') {
+                    sidebar.style.left = '-250px';
+                    overlay.style.display = 'none';
+                } else {
+                    sidebar.style.left = '0px';
+                    overlay.style.display = 'block';
+                }
+            }
+
+            function closeSidebar() {
+                document.getElementById('sidebar').style.left = '-250px';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
+        <!--  -->
+        <!-- header tugad -->
+        <section class="o09">
+            <h1 class="nom">DIQQAT ESLATMA !</h1><br><br>
+            <p>Hurmatli kitobxon, ushbu kitobni o'qishingiz uchun sizga har bir sahifasiga
+                ixtiyoriy vaqt ajratiladi.
+                Ushbu
+                vaqt yakunlanganidan so'ng kitob avtomatik tarzda keyingi sahifani ochib beriladi. Mustaqil keyingi
+                sahifaga
+                o'tishni yoki dasturdan chiqib ketishni imkoni yo'q. <br> <br> <span style="font-size: 18px;">(Bir
+                    sahifa
+                    o’qish uchun
+                    minimum <br> 5 daqiqa etib
+                    belgilangan) </span></p>
+            <br>
+            <h3>Kitob mutolasi uchun o’qish vaqtini hamda sahifa <br> sonini o’zingiz ixtiyoriy belgilang...</h3>
+            <br><br>
+            <div class="raqam">
+                <div class="col-1">
+                    <h5>
+                        Sahifa uchun daqiqa :
+                    </h5>
+                    <div class="input-wrapper">
+                        <i class="fas fa-chevron-down icon icon-left" onclick="changeTime(this, 'down')"></i>
+                        <input type="time" value="00:00">
+                        <i class="fas fa-chevron-up icon icon-right" onclick="changeTime(this, 'up')"></i>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h5>
+                        Sahifa soni:
+                    </h5>
+                    <div class="input-wrapper">
+                        <i class="fas fa-chevron-down icon icon-left" onclick="changeValue(this, 'down')"></i>
+                        <input type="number" value="0" class="number-input">
+                        <i class="fas fa-chevron-up icon icon-right" onclick="changeValue(this, 'up')"></i>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="boslash">
+                <button class="button"><a href="#">O’qishni boshlash</a></button>
+            </div>
+            <br>
+            <script>
+                function changeValue(icon, direction) {
+                    const input = icon.closest('.input-wrapper').querySelector('input[type="number"]'); // Input elementini olish
+                    let currentValue = parseFloat(input.value) || 0; // Hozirgi qiymatni olish
+
+                    if (direction === 'up') {
+                        currentValue += 1; // 1 ga oshirish
+                    } else if (direction === 'down') {
+                        currentValue -= 1; // 1 ga kamaytirish
+                    }
+
+                    input.value = currentValue; // Yangi qiymatni inputga qo'shish
+                }
+
+                function changeTime(icon, direction) {
+                    const input = icon.closest('.input-wrapper').querySelector('input[type="time"]'); // Input elementini olish
+                    let time = input.value.split(':'); // Vaqtni olish
+                    let hours = parseInt(time[0], 10);
+                    let minutes = parseInt(time[1], 10);
+
+                    if (direction === 'up') {
+                        minutes += 1; // 1 daqiqa qo'shish
+                        if (minutes >= 60) {
+                            minutes = 0; // 60 daqiqadan keyin 0 ga qaytarish
+                            hours += 1; // Soatni oshirish
+                        }
+                    } else if (direction === 'down') {
+                        minutes -= 1; // 1 daqiqa kamaytirish
+                        if (minutes < 0) {
+                            minutes = 59; // 0 dan pastga tushmaslik uchun 59 ga o'rnatish
+                            hours -= 1; // Soatni kamaytirish
+                            if (hours < 0) {
+                                hours = 0; // 0 dan pastga tushmaslik
+                            }
+                        }
+                    }
+
+                    input.value = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`; // Yangi vaqtni inputga qo'shish
+                }
+
+
+            </script>
+        </section>
+    </main>
+</body>
+
+</html>

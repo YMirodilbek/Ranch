@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="{% static 'SignUp.css'%}">
+</head>
+<body>
+    <header>
+        <div class="Tepa">
+            <img src="{% static 'logo/NanoBook.png'%}" alt="NanoBook Logo" width="700" height="200px">
+        </div>
+    </header>
+ 
+    <form  method="post">
+        {% csrf_token %}
+        <h2>Ro'yhatdan o'tish</h2>
+        <br>
+        <label>F.I.SH: </label><br>
+        {{form.first_name}}
+        <label>Telefon raqam: </label><br>
+        {{form.phone_number}}
+        <label>Login: </label><br>
+       {{form.username}}
+        <label>Parol: </label><br>
+        {{form.password1}}
+        <label>Parol: </label><br>
+       {{form.password2}}
+        <br>
+        <button style="width: 110% ;" >Davom Etish</button>
+        <br>
+    </form>
+    {{form.errors}}
+</body>
+</html>

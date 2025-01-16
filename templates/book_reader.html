@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reader</title>
+    <script>
+        let countdown = 10; // 10 soniya
+        function startTimer() {
+            const timer = document.getElementById("timer");
+            const interval = setInterval(() => {
+                countdown--;
+                const seconds = countdown % 60;
+                timer.textContent = `00:${seconds < 10 ? "0" : ""}${seconds}`;
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    document.getElementById("next-btn").disabled = false;
+                }
+            }, 1000);
+        }
+    
+        window.onload = startTimer;
+    </script>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <p>Page: {{ progress.current_page }}</p>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <div>
+        <p>Remaining time to next page: <span id="timer">4:00</span></p>
+    </div>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="next_page" id="next-btn" disabled>Next Page</button>
+    </form>
+</body>
+</html>

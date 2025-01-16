@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    font-family: 'GOTHIC';
+    background-color: #EFE5DA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin-top: 60px;
+    text-align: center;
+}
+
+
+.Tepa img {
+    width: 259px;
+    height: 100px;
+    top: 105px;
+    left: 71px;
+    gap: 0px;
+    opacity: 0px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.Orta {
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px; 
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #00000099;
+    font-size: 1.3rem;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 17px 20px;
+    margin: 5px 0 15px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    background: #ECD4BB;
+}
+
+a {
+    color: #8400ff; /* O'zingiz xohlagan rang */
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.chap{
+    display: flex;
+    justify-content: left;
+}
+
+button {
+    background-color: #670BA6; /* O'zingiz xohlagan rang */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+button:hover {
+    background-color: #4b038f; /* Hover effekt */
+}
+
+@media (max-width: 768px) {
+    header {
+        margin-top: 30px;
+    }
+
+    .Tepa img {
+        max-width: 70%; 
+    }
+
+    h2 {
+        font-size: 1.5em; 
+    }
+
+    .Orta {
+        width: 50%; 
+    }
+
+    label {
+        font-size: 1.1rem; 
+    }
+
+    input[type="text"], input[type="password"] {
+        padding: 15px 10px; 
+        font-size: 1rem; 
+    }
+
+    button {
+        padding: 8px 14px; 
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        margin-top: 20px;
+    }
+
+    .Tepa img {
+        max-width: 50%;
+        margin-bottom: 100px; 
+    }
+
+    h2 {
+        font-size: 1.3em;
+        font-weight: 800;
+    }
+
+    .Orta {
+        width: 60%; 
+    }
+
+    label {
+        font-size: 1rem; 
+    }
+
+    input[type="text"], input[type="password"] {
+        padding: 12px 20px; 
+    }
+
+    button {
+        width: 70%; 
+        height: 50px;
+        font-size: 1rem;
+    }
+}

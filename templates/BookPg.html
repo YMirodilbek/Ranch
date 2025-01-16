@@ -1,0 +1,151 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Book</title>
+    <link rel="stylesheet" href="{% static 'bookpg.css'%}">
+</head>
+
+<body bgcolor="#EFE5DA">
+    <main>
+        <!-- header boshland -->
+        <div id="main-container">
+            <header>
+                <div class="menu-icon" onclick="toggleSidebar()">
+                    <a href="#sdiber"><img src="{% static 'logo/headerchaptomon.png'%}" alt="Nano" width="40"></a>
+                </div>
+                <img src="{% static 'logo/NanoBook.png'%}" alt="Logo" class="logo">
+                <div class="right-icon"><img src="{% static 'logo/header.png'%}" alt="Logo" width="40"></div>
+            </header><br>
+
+            <aside id="sidebar">
+                <div class="user-info">
+                    <div class="profile-pic"><img src="{% static 'pdf6/photo_2024-11-06_14-43-02.jpg'%}" alt="Profile Icon"></div>
+                    <p class="user-name">Shavkatov Abduvali</p>
+                </div>
+                <ul class="menu-list">
+                    <li><img src="{% static 'logo/summary-icon.png'%}" alt="Summary Icon"> <span>Xulosa</span></li>
+                    <li><img src="{% static 'logo/wallet-icon.png'%}" alt="Wallet Icon"> <span>Hamyon</span></li>
+                    <li><img src="{% static 'logo/monitor-icon.png'%}" alt="Monitoring Icon"> <span>Monitoring</span></li>
+                    <li><img src="{% static 'logo/share-icon.png'%}" alt="Share Icon"> <span>Do'stlarga ulashish</span></li>
+                    <li><img src="{% static 'logo/settings-icon.png'%}" alt="Settings Icon"> <span>Sozlamalar</span></li>
+                    <li><img src="{% static 'logo/help-icon.png'%}" alt="Help Icon"> <span>Yordam</span></li>
+                    <li><img src="{% static 'logo/logout-icon.png'%}" alt="Logout Icon"> <span>Chiqish</span></li>
+                </ul>
+                <div class="footer">
+                    <p><img src="{% static 'logo/info-icon.png'%}" alt="Info Icon"> <span>Dastur haqida</span></p>
+                </div>
+            </aside>
+            <div id="overlay" onclick="closeSidebar()"></div>
+        </div>
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('overlay');
+
+                if (sidebar.style.left === '0px') {
+                    sidebar.style.left = '-250px';
+                    overlay.style.display = 'none';
+                } else {
+                    sidebar.style.left = '0px';
+                    overlay.style.display = 'block';
+                }
+            }
+
+            function closeSidebar() {
+                document.getElementById('sidebar').style.left = '-250px';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
+        <!--  -->
+        <!-- header tugad -->
+        <br>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">
+                        <h1>{{book.author}} - <span style="font-weight: 300; font-size: 29px;">{{book.title}}</span>
+                        </h1>
+                        <img src="{{book.image.url}}" alt="">
+                    </div>
+                    <div class="col-2">
+                        <h2>Batafsil</h2>
+                        <p><span style="font-size: 30px; color: black; font-weight: 700;">{{book.title}}</span> -
+                            {{book.text}}</p>
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                    {% if user.is_paid %}
+                        <h1>Purchase</h1>
+                   
+                    {% endif %}
+                {% else %}
+                    <h1>Kirish</h1>
+                {% endif %}
+                <form method="POST" action="{% url 'complete_book' book.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Kitobni O'qish Tugatildi</button>
+                  </form>
+                <a href="{{book.kitob.url}}" class="u1"><button class="u2">Davom etish</button></a>
+            </div>
+            <style>
+                .u1 {
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    list-style: none;
+                    align-items: center;
+                    text-decoration: none;
+                }
+
+                .u1 button {
+                    padding: 15px 50px;
+                    font-size: 19px;
+                    background-color: #670BA6;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+
+                @media (max-width: 768px) {
+                    .u1 {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        margin: 0px;
+                    }
+
+                    .u1 button {
+                        font-size: 17px;
+                        padding: 15px 50px;
+                        margin: 0px;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .u1 {
+                        display: flex;
+                        margin: 0px;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                    }
+
+                    .u1 button {
+                        margin: 0px;
+                        font-size: 17px;
+                        padding: 15px 50px;
+                    }
+                }
+            </style>
+        </section>
+    </main>
+</body>
+
+</html>
