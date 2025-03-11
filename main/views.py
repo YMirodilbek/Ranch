@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .utils import generate_verification_code,send_sms
 from django.contrib import messages
 
-from django.views.generic import DetailView
+
 from django.shortcuts import get_object_or_404
 from django.utils.timezone import now
 
@@ -80,19 +80,24 @@ def request_password_reset_view(request):
         form = PhoneNumberForm(request.POST)
         if form.is_valid():
             phone_number = form.cleaned_data['phone_number']
+            
+
             try:
                 # Telefon raqamga mos foydalanuvchini topish
                 user = User.objects.get(phone_number=phone_number)
+
                 verification_code = generate_verification_code()
                 
                 # Sessiyaga tasdiqlash kodi va foydalanuvchi ID-ni saqlash
                 request.session['verification_code'] = verification_code
                 request.session['reset_user_id'] = user.id
+               
 
                 # SMS yuborish
                 message = f"Parolni tiklash uchun tasdiqlash kodi: {verification_code}"
                 if send_sms(phone_number, message):
-                    messages.success(request, "Tasdiqlash kodi yuborildi. Iltimos, kodingizni kiriting.")
+                    
+                    messages.success(request, f"Tasdiqlash kodi yuborildi. Iltimos, kodingizni kiriting. Username: {user.username}")
                     return redirect('/verify-code/')
                 else:
                     messages.error(request, "Tasdiqlash kodini yuborishda muammo yuz berdi.")
@@ -182,7 +187,7 @@ def Home(request):
 
 
 
-
+from django.views.generic import DetailView
 class BookDetail(DetailView):
     model = Books
     template_name = 'BookPg.html'

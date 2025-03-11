@@ -7,6 +7,8 @@ urlpatterns = [
     path('signup/<uuid:referral_code>/',Register),
     path('login/',login_view),
     path('logout/',Logout),
+
+    
     path('send-code/', request_password_reset_view, name='send_code'),
     path('verify-code/', verify_code_view, name='verify_code'),
     path('reset-password/', reset_password_view, name='reset_password'),

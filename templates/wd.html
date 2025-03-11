@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Vacancies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .job-listing {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .apply-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .apply-btn:hover {
+            background: #0056b3;
+        }
+        .application-form {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Current Job Vacancies</h1>
+        
+        <div class="job-listing">
+            <h2>Software Engineer</h2>
+            <p><strong>Company:</strong> Tech Solutions</p>
+            <p><strong>Location:</strong> Remote</p>
+            <p><strong>Salary:</strong> $60,000 - $80,000 per year</p>
+            <p><strong>Description:</strong> We are looking for a skilled Software Engineer to join our dynamic team. Experience with Python and JavaScript is a plus.</p>
+            <a href="#apply" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-listing">
+            <h2>UI/UX Designer</h2>
+            <p><strong>Company:</strong> Creative Minds</p>
+            <p><strong>Location:</strong> Hybrid</p>
+            <p><strong>Salary:</strong> $50,000 - $70,000 per year</p>
+            <p><strong>Description:</strong> Seeking a creative UI/UX Designer with experience in Figma and Adobe XD.</p>
+            <a href="#apply" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-listing">
+            <h2>Data Analyst</h2>
+            <p><strong>Company:</strong> Data Insights</p>
+            <p><strong>Location:</strong> On-site</p>
+            <p><strong>Salary:</strong> $55,000 - $75,000 per year</p>
+            <p><strong>Description:</strong> Looking for a Data Analyst with experience in SQL and data visualization tools.</p>
+            <a href="#apply" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div id="apply" class="application-form">
+            <h2>Apply for a Job</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="position">Position Applying For</label>
+                    <input type="text" id="position" name="position" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Cover Letter</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
